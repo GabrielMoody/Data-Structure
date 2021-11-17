@@ -58,14 +58,14 @@ class List{
       free(curr);
     }
 
-    // void traverse(Node** node = &head){
-    //   Node* curr = *node;
+     void traverse(Node** node = &head){
+       Node* curr = *node;
 
-    //   while(curr->next != NULL){
-    //     cout << curr->data << " -> ";
-    //     curr = curr->next;
-    //   }
-    // }
+       while(curr->next != NULL){
+         cout << curr->data << " -> ";
+         curr = curr->next;
+       }
+     }
 };
 
 int main(){
@@ -75,7 +75,7 @@ int main(){
   c.push(30);
   c.push(40);
   c.push(50);
-  // c.traverse();
+  c.traverse();
 
   return 0;
 }
