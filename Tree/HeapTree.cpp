@@ -4,9 +4,9 @@
 using namespace std;
 
 void swap(int* a, int* b){
-  int temp = *a;
-  *a = *b;
-  *b = temp;
+  int temp = *b;
+  *b = *a;
+  *a = temp;
 }
 
 void heapify(vector<int> &hp, int i){
@@ -39,16 +39,14 @@ void insert(vector<int> &hp, int data){
 }
 
 void remove(vector<int> &hp, int data){
-  int i;
   int size = hp.size();
 
-  for(i = 0; i < size; i++){
+  for(int i = 0; i < size; i++){
     if(hp[i] == data){
+      swap(&hp[i], &hp[size - 1]);
       break;
     }
   }
-
-  swap(&hp[i], &hp[size - 1]);
 
   hp.pop_back();
 
@@ -66,11 +64,13 @@ void print(vector<int> &hp){
 int main(){
   vector<int> heap;
 
-  insert(heap, 20);
-  insert(heap, 40);
   insert(heap, 10);
+  insert(heap, 40);
+  insert(heap, 9);
   insert(heap, 4);
-  remove(heap, 20);
+  insert(heap, 20);
+  insert(heap, 30);
+  // remove(heap, 20);
   
   print(heap);
   return 0;
